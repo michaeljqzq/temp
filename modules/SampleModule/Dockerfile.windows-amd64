@@ -1,10 +1,10 @@
 FROM microsoft/dotnet:2.1-sdk AS build-env
 WORKDIR /app
 
-COPY *.csproj ./
+COPY modules/SampleModule/*.csproj ./
 RUN dotnet restore
 
-COPY . ./
+COPY modules/SampleModule/ ./
 RUN dotnet publish -c Release -o out
 
 FROM microsoft/dotnet:2.1-runtime-nanoserver-1803
