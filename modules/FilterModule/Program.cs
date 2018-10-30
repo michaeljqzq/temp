@@ -79,6 +79,7 @@ namespace SampleModule
                 {
                     pipeMessage.Properties.Add(prop.Key, prop.Value);
                 }
+                pipeMessage.Properties.Add("module", "FilterModule");
                 await moduleClient.SendEventAsync("output1", pipeMessage);
                 Console.WriteLine("Received message sent");
             }
